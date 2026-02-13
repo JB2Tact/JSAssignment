@@ -257,27 +257,13 @@ window.addEventListener("load", function () {
     function showCongrats(message) {
         congratsMessage.textContent = message;
         congratsBanner.classList.remove("hidden");
-        congratsBanner.style.animation = "bannerIn 0.4s ease-out";
+        // Simple timeout to hide it after 3 seconds, no fancy animation
         setTimeout(function () {
-            congratsBanner.style.animation = "bannerOut 0.4s ease-in forwards";
-            setTimeout(function () {
-                congratsBanner.classList.add("hidden");
-            }, 400);
+            congratsBanner.classList.add("hidden");
         }, 3000);
     }
     function showClickFeedback(amount) {
-        let feedback = document.createElement("div");
-        feedback.className = "click-feedback";
-        feedback.textContent = "+" + formatNumber(amount);
-        let offsetX = Math.floor(Math.random() * 80) - 40;
-        feedback.style.left = "calc(50% + " + offsetX + "px)";
-        feedback.style.top = "40%";
-        clickArea.appendChild(feedback);
-        setTimeout(function () {
-            if (feedback.parentNode) {
-                feedback.parentNode.removeChild(feedback);
-            }
-        }, 800);
+        // No visual feedback for basic version
     }
     function checkRewards() {
         for (let i = 0; i < rewards.length; i++) {
@@ -287,10 +273,7 @@ window.addEventListener("load", function () {
                 renderRewards();
                 let badgeEl = document.getElementById("reward-" + reward.id);
                 if (badgeEl) {
-                    badgeEl.classList.add("just-earned");
-                    setTimeout(function () {
-                        badgeEl.classList.remove("just-earned");
-                    }, 1200);
+                    // No animation class needed
                 }
                 showCongrats("Reward Earned: " + reward.name + "!");
             }
@@ -343,9 +326,11 @@ window.addEventListener("load", function () {
         }
     }
     mineBtn.addEventListener("click", function () {
+        console.log("Mine button clicked");
         mine(true);
     });
     helpBtn.addEventListener("click", function () {
+        console.log("Help opened");
         helpModal.classList.remove("hidden");
     });
     closeHelp.addEventListener("click", function () {
@@ -356,6 +341,8 @@ window.addEventListener("load", function () {
             helpModal.classList.add("hidden");
         }
     });
+
+    console.log("Game initialized. Minerals: " + minerals);
     renderAll();
     renderRewards();
 });

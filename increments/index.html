@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Miner</title>
+    <title>Space Miner (WIP)</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <!-- Congratulations Banner (hidden by default) -->
     <div id="congrats-banner" class="congrats-banner hidden">
@@ -20,7 +21,8 @@
             <button id="close-help" class="close-btn">&times;</button>
             <div class="help-body">
                 <h3>Basics</h3>
-                <p>Click the asteroid to mine minerals. Use your minerals to buy upgrades that help you mine faster and earn more per click.</p>
+                <p>Click the asteroid to mine minerals. Use your minerals to buy upgrades that help you mine faster and
+                    earn more per click.</p>
 
                 <h3>Click Upgrades</h3>
                 <p>These upgrades increase the number of minerals you earn per click:</p>
@@ -33,7 +35,8 @@
                 <h3>Auto-Miner Upgrade</h3>
                 <p>This upgrade automatically mines minerals for you:</p>
                 <ul>
-                    <li><strong>Mining Drone</strong> &mdash; First purchase starts auto-mining every 3 seconds. Each additional purchase speeds it up (faster interval). Base cost: 100 minerals.</li>
+                    <li><strong>Mining Drone</strong> &mdash; First purchase starts auto-mining every 3 seconds. Each
+                        additional purchase speeds it up (faster interval). Base cost: 100 minerals.</li>
                 </ul>
 
                 <h3>Rewards</h3>
@@ -95,7 +98,8 @@
             <section class="click-area">
                 <h2>Mine the Asteroid</h2>
                 <button id="mine-btn" class="mine-btn" title="Click to mine!">
-                    <span class="asteroid-emoji">&#9732;</span>
+                    <!-- TODO: Replace with image -->
+                    <span class="asteroid-placeholder">[ Asteroid ]</span>
                 </button>
                 <p class="click-hint">Click the asteroid to mine minerals!</p>
                 <!-- Click feedback -->
@@ -126,12 +130,24 @@
             </div>
         </section>
 
+        <!-- Dev Notes (Visible for now) -->
+        <div style="margin-top: 30px; border: 1px dashed red; padding: 10px; background: #fff0f0;">
+            <h3>Dev Notes (TODO)</h3>
+            <ul>
+                <li>Fix responsive layout for mobile</li>
+                <li>Add sound effects</li>
+                <li>Balance upgrade costs</li>
+                <li>Replace placeholders with real assets</li>
+            </ul>
+        </div>
+
         <!-- Footer -->
         <footer class="game-footer">
-            <p>Space Miner &mdash; CS 1XD3 Pair Assignment &copy; 2026</p>
+            <p>Space Miner v0.8 (Beta)</p>
         </footer>
     </div>
 
     <script src="js/game.js"></script>
 </body>
+
 </html>
