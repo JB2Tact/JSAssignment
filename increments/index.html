@@ -1,0 +1,144 @@
+<!--
+  Space Miner - An Incremental Game
+  CS 1XD3 Pair Assignment
+  Authors: Akil Kanwar
+  Date: February 2026
+  Description: An incremental/clicker game where the player mines asteroids
+               for minerals, purchases upgrades, and earns rewards.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Miner</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Congratulations Banner (hidden by default) -->
+    <div id="congrats-banner" class="congrats-banner hidden">
+        <p id="congrats-message"></p>
+    </div>
+
+    <!-- Help Modal -->
+    <div id="help-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>How to Play Space Miner</h2>
+            <button id="close-help" class="close-btn">&times;</button>
+            <div class="help-body">
+                <h3>Basics</h3>
+                <p>Click the asteroid to mine minerals. Use your minerals to buy upgrades that help you mine faster and earn more per click.</p>
+
+                <h3>Click Upgrades</h3>
+                <p>These upgrades increase the number of minerals you earn per click:</p>
+                <ul>
+                    <li><strong>Better Pickaxe</strong> &mdash; +1 mineral per click. Base cost: 15 minerals.</li>
+                    <li><strong>Laser Drill</strong> &mdash; +5 minerals per click. Base cost: 75 minerals.</li>
+                    <li><strong>Plasma Cutter</strong> &mdash; +25 minerals per click. Base cost: 500 minerals.</li>
+                </ul>
+
+                <h3>Auto-Miner Upgrade</h3>
+                <p>This upgrade automatically mines minerals for you:</p>
+                <ul>
+                    <li><strong>Mining Drone</strong> &mdash; First purchase starts auto-mining every 3 seconds. Each additional purchase speeds it up (faster interval). Base cost: 100 minerals.</li>
+                </ul>
+
+                <h3>Rewards</h3>
+                <p>Earn badges by reaching milestones:</p>
+                <ul>
+                    <li><strong>First Steps</strong> &mdash; Collect 100 minerals total.</li>
+                    <li><strong>Getting Rich</strong> &mdash; Collect 1,000 minerals total.</li>
+                    <li><strong>Space Tycoon</strong> &mdash; Collect 10,000 minerals total.</li>
+                    <li><strong>First Upgrade</strong> &mdash; Purchase your first upgrade of any kind.</li>
+                    <li><strong>Automation</strong> &mdash; Purchase your first Mining Drone.</li>
+                    <li><strong>Fully Loaded</strong> &mdash; Own 10 total upgrades.</li>
+                    <li><strong>Speed Demon</strong> &mdash; Purchase 5 Mining Drone upgrades.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Game Container -->
+    <div class="game-container">
+
+        <!-- Header -->
+        <header class="game-header">
+            <h1>&#9734; Space Miner &#9734;</h1>
+            <button id="help-btn" class="help-btn">? Help</button>
+        </header>
+
+        <!-- Scoreboard -->
+        <section id="scoreboard" class="scoreboard">
+            <div class="score-item">
+                <span class="score-label">Minerals</span>
+                <span id="mineral-count" class="score-value">0</span>
+            </div>
+            <div class="score-item">
+                <span class="score-label">Per Click</span>
+                <span id="click-value" class="score-value">1</span>
+            </div>
+            <div class="score-item">
+                <span class="score-label">Total Mined</span>
+                <span id="total-mined" class="score-value">0</span>
+            </div>
+            <div class="score-item">
+                <span class="score-label">Upgrades Owned</span>
+                <span id="upgrades-owned" class="score-value">0</span>
+            </div>
+            <!-- Visual progress bar for next milestone -->
+            <div class="progress-container">
+                <span class="score-label">Next Milestone</span>
+                <div class="progress-bar-bg">
+                    <div id="progress-bar" class="progress-bar-fill"></div>
+                </div>
+                <span id="progress-label" class="progress-label">0 / 100</span>
+            </div>
+        </section>
+
+        <!-- Main Area: Click + Upgrades side by side -->
+        <div class="main-area">
+
+            <!-- Click Area -->
+            <section class="click-area">
+                <h2>Mine the Asteroid</h2>
+                <button id="mine-btn" class="mine-btn" title="Click to mine!">
+                    <span class="asteroid-emoji">&#9732;</span>
+                </button>
+                <p class="click-hint">Click the asteroid to mine minerals!</p>
+                <!-- Click feedback -->
+                <div id="click-feedback" class="click-feedback hidden"></div>
+            </section>
+
+            <!-- Upgrade Area -->
+            <section class="upgrade-area">
+                <h2>Upgrades</h2>
+
+                <h3 class="upgrade-category">Click Power</h3>
+                <div id="upgrade-list-click" class="upgrade-list">
+                    <!-- Click upgrades rendered by JS -->
+                </div>
+
+                <h3 class="upgrade-category">Automation</h3>
+                <div id="upgrade-list-auto" class="upgrade-list">
+                    <!-- Auto upgrades rendered by JS -->
+                </div>
+            </section>
+        </div>
+
+        <!-- Rewards Area -->
+        <section class="rewards-area">
+            <h2>Rewards</h2>
+            <div id="rewards-list" class="rewards-list">
+                <!-- Rewards rendered by JS -->
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="game-footer">
+            <p>Space Miner &mdash; CS 1XD3 Pair Assignment &copy; 2026</p>
+        </footer>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
