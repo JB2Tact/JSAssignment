@@ -1,13 +1,4 @@
-/*
- * Space Miner - Stylesheet
- * CS 1XD3 Pair Assignment
- * Authors: Akil Kanwar
- * Date: February 2026
- * Description: Styles for the Space Miner incremental game.
- *              Uses a dark space theme with purple/blue accents.
- */
 
-/* ===== Reset & Base ===== */
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
