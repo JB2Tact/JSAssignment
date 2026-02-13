@@ -299,3 +299,12 @@ button.disabled {
     font-size: 12px;
     color: #999;
 }
+
+.asteroid-img{
+  width: 210px;      /* change size if you want */
+  height: 210px;
+  object-fit: contain;
+  display: block;
+  pointer-events: none; /* clicks still register on the button */
+  user-select: none;
+}
