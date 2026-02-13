@@ -20,7 +20,7 @@ body {
 .game-container {
     max-width: 800px;
     margin: 0 auto;
-    background: white;
+    background: rgba(255, 255, 255, 0.116);
     border: 1px solid #999;
     padding: 20px;
     /* TODO: Add box-shadow later */
@@ -101,7 +101,7 @@ button.disabled {
     /* Dashed border looks temporary */
     padding: 15px;
     margin-bottom: 20px;
-    background: #fafafa;
+    background: #fafafa9f;
 }
 
 .score-item {
@@ -136,7 +136,7 @@ button.disabled {
     flex: 1;
     border: 1px solid #ddd;
     padding: 15px;
-    background: #fff;
+    background: #fafafa9f;
 }
 
 /* Mine Button */
@@ -150,7 +150,7 @@ button.disabled {
     justify-content: center;
     align-items: center;
     margin: 30px auto;
-    background: #ddd;
+    background: #fafafa9f;
     border: 2px dashed #999;
     /* Placeholder look */
     color: #555;
@@ -212,7 +212,7 @@ button.disabled {
 .rewards-area {
     border: 1px solid #ddd;
     padding: 15px;
-    background: #fafafa;
+    background: #fafafa9f;
 }
 
 .rewards-list {
@@ -307,4 +307,28 @@ button.disabled {
   display: block;
   pointer-events: none; /* clicks still register on the button */
   user-select: none;
+}
+
+
+.video-bg{
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: #000; /* fallback if video doesn't load */
+}
+
+.video-bg__media{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fills screen nicely */
+  display: block;
+}
+
+/* Optional: darken video so UI text is readable */
+.video-bg::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
 }
